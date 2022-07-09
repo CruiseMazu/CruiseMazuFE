@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require("webpack");
+const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
 
 module.exports = {
   mode: "development",
@@ -27,4 +29,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(dotenv.parsed),
+      "process.env.GRAPHQL_PORT": JSON.stringify(process.env.GRAPHQL_PORT),
+    }),
+  ],
 };

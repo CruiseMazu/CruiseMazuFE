@@ -1,10 +1,12 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import React, { useState } from "react";
 
+const GRAPHQL_PORT = process.env.GRAPHQL_PORT;
+
 export const App = () => {
   const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: process.env.GRAPHQL_PORT,
+    uri: GRAPHQL_PORT,
   });
 
   const [counter, setCounter] = useState(0);
@@ -33,6 +35,9 @@ export const App = () => {
         >
           Decrement!
         </button>
+        <p>
+          <b>GraphQL Port:</b> {GRAPHQL_PORT}
+        </p>
       </div>
     </ApolloProvider>
   );
