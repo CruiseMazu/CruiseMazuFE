@@ -1,7 +1,7 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-const GRAPHQL_PORT = process.env.GRAPHQL_PORT;
+const GRAPHQL_PORT = 'http://localhost:8000/graphql';
 
 export const App = () => {
   const client = new ApolloClient({
